@@ -15,7 +15,7 @@ def change_site_title_wo_global(new_title: str, global_settings=settings) -> dic
 def change_site_title(new_title: str):
     '''This function make variabe global
     and change this variable with an updated title'''
-    global settings
+    # global settings
     settings['title'] = new_title
 
 def get_title(settings_dict=default_settings):
@@ -42,10 +42,11 @@ def print_user_profile(gender: str = 'female', first: str = 'Jane', last: str = 
     Then it prints phrase with first and last name of user and common header for every user.
     After that it iterates through list of pictures and prints them line by line.'''
     
-    if gender == 'male' and first == 'Jane':
-        first = 'John'
-    elif gender == 'female' and first == 'Jane':
-        first = 'Jane'
+    if first == 'Jane':
+        if gender == 'male':
+            first = 'John'
+        elif gender == 'female':
+            pass
 
     print(f'The user {first} {last} has the following pictures: ')
     print('common_header.png')
@@ -103,6 +104,7 @@ while True:
     elif choice == '4':
         test_data1 = {
             "gender": "male",
+            'first': 'Maksym',
             "last": "Brown",
             "pictures": ["holidays1.png", "easter_grandma.png"]
         }
